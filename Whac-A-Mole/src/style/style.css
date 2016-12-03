@@ -1,0 +1,41 @@
+.Game_board{
+  width:306px;
+  height:306px;
+  border:1px solid white;
+}
+.Cell{
+  width:100px;
+  height:100px;
+  border:1px solid white;
+  float:left;
+  background-color: pink;
+}
+.mouse{
+  width:100px;
+  height:100px;
+  border:1px solid white;
+  float:left;
+  background-color: yellow;
+}
+.control{
+  width:306px;
+  margin-top: 5px;
+}
+.start{
+  width:auto;
+  background-color: green;
+  float: left;
+}
+.pause{
+  width:auto;
+  background-color: gray;
+  float: left;
+}
+.end{
+  width:auto;
+  background-color: red;
+  float: left;
+}
+.showOver{
+  display:none;
+}

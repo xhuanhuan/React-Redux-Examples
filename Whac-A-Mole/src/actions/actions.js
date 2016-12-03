@@ -1,31 +1,19 @@
-export const Add_Todo='ADD_TODO';
-export const Toggle_Todo='TOGGLE_TODO';
-export const set_Visibility_Filter='SET_VISIBILITY_FILTER';
 
-export const Visibility_Filter={
-  Show_All:'Show_All',
-  Show_Active:'Show_Active',
-  Show_completed:'Show_Completed'
-}
-
-
-export function AddTodos(text){
+export function Generate_Mouse(){
   return {
-    type:Add_Todo,
-    text
+    type:"Generate_Mouse",
   }
 }
 
-export function ToggleTodo(index){
+export function Game_Over(){
   return {
-    type:Toggle_Todo,
-    index
+    type:"Game_Over",
   }
 }
 
-export function setVisibilityFilter(filter){
+export function Beat_Mouse(index){
   return{
-    type:set_Visibility_Filter,
-    filter
+    type:"Beat_Mouse",
+    index
   }
 }

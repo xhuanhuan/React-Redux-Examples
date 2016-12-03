@@ -1,38 +1,44 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux'
-import Footer from '../components/Footer';
-import AddTodo from '../components/AddTodo';
-import TodoList from '../components/TodoList';
-import {AddTodos,ToggleTodo,setVisibilityFilter} from '../actions/actions'
+import Control from '../components/Control';
+import Game_board from '../components/Game_board';
+import Info from '../components/Info';
+import {Generate_Mouse,Game_Over,Beat_Mouse,Pause} from '../actions/actions'
+
+let timer;
+let sum=0;
 class App extends React.Component{
+   handleClick(index){
+    if(index==="start"){
+      timer=setInterval(this.props.dispatch.bind(null,Generate_Mouse()),2000);
+    }else if(index==="end"){
+      clearInterval(timer);
+      this.props.dispatch(Game_Over());
+    }else if(index==="pause"){
+      clearInterval(timer);
+      this.props.dispatch(Pause());
+    }
+   }
   render(){
-    const{dispatch,visibleTodos,visibilityFilter}=this.props;
+    const {dispatch,id,GameOver,success,sum}=this.props;
     return(
       <div>
-        <AddTodo onAddClick={text=>dispatch(AddTodos(text))} />
-        <TodoList todos={visibleTodos} onTodoClick={(index)=>dispatch(ToggleTodo(index))} />
-        <Footer onClick={visibilityFilter=>dispatch(setVisibilityFilter(visibilityFilter))} />
+        <Game_board select={id} onClick={(index)=>dispatch(Beat_Mouse(index))} />
+        <div style={{clear:'left'}}></div>
+        <Control onClick={(index)=>this.handleClick(index)} />
+        <Info success={success} sum={sum} />
       </div>
     );
   }
 }
-function selectTodos(todos,filter) {
-  switch(filter){
-    case 'Show_All':
-    return todos;
-    case 'Show_Active':
-    return todos.filter(todo=>!todo.completed);
-    case 'Show_Completed':
-    return todos.filter(todo=>todo.completed);
-    default:
-    return todos;
 
-  }
-}
 function select(state){
   return{
-    visibleTodos:selectTodos(state.todos,state.visibilityFilter),
-    visibilityFilter:state.visibilityFilter
+    id:state.mouses.id,
+    GameOver:state.mouses.GameOver,
+    success:state.mouses.success,
+    sum:state.mouses.sum,
+    first:state.mouses.first
   }
 
 }
