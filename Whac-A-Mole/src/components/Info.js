@@ -4,9 +4,13 @@ import '../style/style.css'
 class Info extends React.Component{
 render(){
   return(
-    <div className="info">
-    <h4>击中次数：</h4><p>{this.props.success}</p>
-    <h4>地鼠数目：</h4><p>{this.props.sum}</p>
+    <div className="Info">
+    <h3>{this.props.sum==20?"Game Over":""}</h3>
+    <table>
+    <tr><th>击中次数：</th><td>{this.props.success}</td></tr>
+    <tr><th>地鼠数目：</th><td>{this.props.sum}</td></tr>
+    <tr><th>命中率：  </th><td>{this.props.success/this.props.sum}</td></tr>
+    </table>
     </div>
   );
 }

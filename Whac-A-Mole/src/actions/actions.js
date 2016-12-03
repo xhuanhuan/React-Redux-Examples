@@ -17,3 +17,9 @@ export function Beat_Mouse(index){
     index
   }
 }
+
+export function Pause(){
+  return {
+    type:"pause",
+  }
+}

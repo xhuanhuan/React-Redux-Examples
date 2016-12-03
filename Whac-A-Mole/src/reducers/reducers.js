@@ -6,6 +6,15 @@ const mouses = (state = {}, action) => {
 
 
     case "Generate_Mouse":
+    if(state.sum==20){
+      return {
+        id:0,
+        GameOver:true,
+        success:0,
+        sum:0,
+        first:0
+      }
+    }
     return{
       id:Math.floor(Math.random()*8)+1,
       GameOver:false,

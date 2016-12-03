@@ -21,3 +21,5 @@ class Game_board extends React.Component{
 }
 
 export default Game_board;
+
+//onClick={(index)=>this.props.onClick(index)}

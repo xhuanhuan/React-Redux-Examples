@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 
 class Cell extends React.Component{
+  handleClick(){
+    this.props.onClick(this.props.location);
+    setTimeout(this.refs.mouse.className="Cell",200);
+  }
   render(){
     const location=this.props.location;
     const select=this.props.select;
     if(select===location){
       return(
-        <div className="mouse" onClick={this.props.onClick.bind(null,location)}>
+        <div ref="mouse" className="mouse" onClick={this.handleClick.bind(this)}>
         </div>
       );
     }else{
@@ -19,4 +23,5 @@ class Cell extends React.Component{
   }
 }
 export default Cell;
-//onClick={this.props.onClick.bind(null,location)}
+//onClick={(location)=>this.props.onClick(location)}
+//onClick={this.props.onClick.bind(null,location)

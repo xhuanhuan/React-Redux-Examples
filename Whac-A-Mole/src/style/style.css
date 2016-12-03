@@ -22,20 +22,40 @@
   margin-top: 5px;
 }
 .start{
-  width:auto;
-  background-color: green;
+  /*width:auto;
+  background-color: green;*/
+  height:40px;
   float: left;
 }
 .pause{
-  width:auto;
-  background-color: gray;
-  float: left;
-}
-.end{
-  width:auto;
-  background-color: red;
-  float: left;
+  /*width:auto;
+  background-color: orange;*/
+  height:40px;
+  float: right;
 }
 .showOver{
   display:none;
+}
+.Info{
+  width:600px;
+  text-align: center;
+}
+.Info table{
+  width:60%;
+}
+.Info table tr{
+  width:100%;
+  height:50px;
+  text-align: center;
+  background-color: pink;
+  border:1px solid black;
+}
+.Info table tr td{
+  width:50%;
+  text-align: center;
+}
+.Info table tr th{
+  width:50%;
+  text-align: center;
+  background-color: orange;
 }
