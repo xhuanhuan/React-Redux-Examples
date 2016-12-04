@@ -3,11 +3,15 @@ import {Generate_Mouse} from '../actions/actions'
 import '../style/style.css'
 
 class Control extends React.Component{
+  handleStartClick(){
+    this.refs.start.disabled='disabled';
+    this.props.onClick("start");
+  }
   render(){
     return(
       <div className="control">
-      <button className="start btn-primary" onClick={()=>this.props.onClick("start")}>Start the Game</button>
-      <button className="pause btn-success" onClick={()=>this.props.onClick("pause")}>pause Game</button>
+      <button ref="start" className="start btn btn-info" onClick={this.handleStartClick.bind(this)}>Start Game</button>
+      <button className="pause btn btn-success" onClick={()=>{this.refs.start.disabled='';this.props.onClick("pause")}}>Pause / Reset</button>
       <div style={{clear:'left'}}></div>
       </div>
     );

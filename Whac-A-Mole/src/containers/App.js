@@ -11,6 +11,7 @@ class App extends React.Component{
     this.props.dispatch(Generate_Mouse());
     if(this.props.sum==20){
       clearInterval(timer);
+      setTimeout(()=>this.props.dispatch(Game_Over()),800);
     }
   }
    handleClick(index){
@@ -21,16 +22,28 @@ class App extends React.Component{
       this.props.dispatch(Pause());
     }
    }
+   handleGameboardClick(index){
+     this.props.dispatch(Beat_Mouse(index));
+     if(this.props.sum==20){
+      this.refs.gameover.style.display="block";
+      setTimeout(()=>this.refs.gameover.style.display="none",1000);
+     }
+   }
   render(){
-    const {dispatch,id,GameOver,success,sum}=this.props;
+    const {dispatch,id,GameOver,success,sum,first}=this.props;
       return(
+        <div className="container">
+        <p className="tittle"> Whac A Mouse</p>
         <div className="row">
-        <div style={{border:'1px solid black',paddingLeft:'8%'}} className="col col-xs-10 col-s-5 col-m-5 col-lg-5 col-xs-offset-1 col-s-offset-1 col-m-offset-1 col-lg-offset-1">
-          <Game_board select={id} onClick={(index)=>dispatch(Beat_Mouse(index))} />
+        <div className="text-center col-xs-8 col-s-4 col-m-4 col-lg-4 col-xs-offset-2 col-s-offset-2 col-m-offset-2 col-lg-offset-2">
+          <Game_board sum={sum} select={id} onClick={(index)=>this.handleGameboardClick(index)} />
+          <div style={{clear:'left'}}></div>
           <Control sum={sum} onClick={(index)=>this.handleClick(index)} />
+          <h3 ref="gameover" className="gameover">Game Over</h3>
         </div>
-        <div className="col col-xs-10 col-s-5 col-m-5 col-lg-5 col-xs-offset-1 col-s-offset-0 col-m-offset-0 col-lg-offset-0">
+        <div className="text-center col-xs-8 col-s-4 col-m-4 col-lg-4 col-xs-offset-2 col-s-offset-0 col-m-offset-0 col-lg-offset-0">
           <Info success={success} sum={sum} />
+        </div>
         </div>
         </div>
       );
@@ -47,4 +60,3 @@ function select(state){
   }
 }
 export default connect(select)(App);
-//  timer=setInterval(this.props.dispatch.bind(null,Generate_Mouse()),2000);

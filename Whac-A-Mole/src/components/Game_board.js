@@ -6,9 +6,8 @@ import '../style/style.css'
 class Game_board extends React.Component{
   render(){
     let Cells=[];
-    for(let i=1;i<=9;i++){
-        Cells.push(<Cell select={this.props.select} location={i} key={i} onClick={(index)=>this.props.onClick(index)} />);
-
+    for(let i=1;i<=16;i++){
+        Cells.push(<Cell sum={this.props.sum} select={this.props.select} location={i} key={i} onClick={(index)=>this.props.onClick(index)} />);
     }
     return(
       <div className="Game_board">

@@ -3,7 +3,9 @@ import React, {Component} from 'react'
 class Cell extends React.Component{
   handleClick(){
     this.props.onClick(this.props.location);
-    setTimeout(this.refs.mouse.className="Cell",200);
+    if(this.props.sum==20){
+      setTimeout(()=>this.refs.mouse.className="Cell",200);
+    }
   }
   render(){
     const location=this.props.location;
@@ -16,7 +18,7 @@ class Cell extends React.Component{
     }else{
 
     return(
-      <div className="Cell" onClick={this.props.onClick.bind(null,location)}>
+      <div ref="mouse" className="Cell" onClick={this.props.onClick.bind(null,location)}>
       </div>
     );
   }

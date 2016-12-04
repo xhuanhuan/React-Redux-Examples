@@ -16,7 +16,7 @@ const mouses = (state = {}, action) => {
       }
     }
     return{
-      id:Math.floor(Math.random()*8)+1,
+      id:Math.floor(Math.random()*15)+1,
       GameOver:false,
       success:state.success,
       sum:++state.sum,
@@ -28,10 +28,10 @@ const mouses = (state = {}, action) => {
     return {
       id:0,
       GameOver:true,
-      success:0,
-      sum:0,
+      success:state.success,
+      sum:state.sum,
       first:0
-    };
+    }
 
     case "Beat_Mouse":
     if(action.index===state.id){
