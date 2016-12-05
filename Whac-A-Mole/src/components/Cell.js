@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 class Cell extends React.Component{
   handleClick(){
     this.props.onClick(this.props.location);
-    if(this.props.sum==20){
+    if(this.props.sum===20){
       setTimeout(()=>this.refs.mouse.className="Cell",200);
     }
   }

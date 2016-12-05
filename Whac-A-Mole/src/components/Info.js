@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../style/style.css'
 
 class Info extends React.Component{

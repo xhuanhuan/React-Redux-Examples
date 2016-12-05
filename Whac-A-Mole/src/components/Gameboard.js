@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Cell from './Cell'
-import {Beat_Mouse} from '../actions/actions'
 import '../style/style.css'
 
-class Game_board extends React.Component{
+class Gameboard extends React.Component{
   render(){
     let Cells=[];
     for(let i=1;i<=16;i++){
@@ -19,6 +18,6 @@ class Game_board extends React.Component{
   }
 }
 
-export default Game_board;
+export default Gameboard;
 
 //onClick={(index)=>this.props.onClick(index)}

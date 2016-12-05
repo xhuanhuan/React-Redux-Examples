@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import {Generate_Mouse} from '../actions/actions'
+import React from 'react'
 import '../style/style.css'
 
 class Control extends React.Component{

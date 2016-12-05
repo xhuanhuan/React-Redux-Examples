@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux'
 
-let sum=0;
 const mouses = (state = {}, action) => {
   switch (action.type) {
 
-
     case "Generate_Mouse":
-    if(state.sum==20){
+    if(state.sum===20){
       return {
         id:0,
         GameOver:true,
@@ -39,7 +37,7 @@ const mouses = (state = {}, action) => {
       return {
         id:state.id,
         GameOver:false,
-        success:state.first==0?++state.success:state.success,
+        success:state.first===0?++state.success:state.success,
         sum:state.sum,
         first:++state.first
       };
