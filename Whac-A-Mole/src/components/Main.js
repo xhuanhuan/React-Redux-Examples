@@ -17,7 +17,11 @@ class Main extends React.Component{
       timer=setInterval(this.generate.bind(this),1000);
     }else if(index==="pause"){
       clearInterval(timer);
-      this.props.Pause();
+      if(this.props.sum===20){
+        this.props.Generate_Mouse();
+      }else{
+          this.props.Pause();
+      }
     }
    }
    handleGameboardClick(index){

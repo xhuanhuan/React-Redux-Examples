@@ -4,13 +4,7 @@ import Main from '../components/Main';
 import * as actionCreators from '../actions/actions';
 
 function mapstatetoprops(state){
-  return{
-    id:state.mouses.id,
-    GameOver:state.mouses.GameOver,
-    success:state.mouses.success,
-    sum:state.mouses.sum,
-    first:state.mouses.first
-  }
+  return state.mouses;
 }
 function mapactiontoprops(dispatch){
   return bindActionCreators(actionCreators,dispatch);
